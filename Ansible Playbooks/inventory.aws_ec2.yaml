@@ -1,0 +1,16 @@
+plugin: amazon.aws.aws_ec2
+filters:
+  tag:Type:
+    - ansible-rhel-ar
+    - ansible-ubuntu-ar
+    - ansible-awslinux-ar
+
+keyed_groups:
+  - prefix: 'nodes'
+    key: tags.Type
+    separator: '_'
+
+cache: true
+cache_plugin: ansible.builtin.jsonfile
+cache_timeout: 3600
+cache_connection: 'cache/'

@@ -1,0 +1,10 @@
+- name: 'Copy get-pip.py installation script onto the host'
+  ansible.builtin.copy:
+    dest: '~/get-pip.py'
+    src: 'get-pip.py'
+- name: 'Install pip'
+  ansible.builtin.command:
+    cmd: 'python3 ~/get-pip.py'
+- name: 'Remove get-pip.py'
+  ansible.builtin.command:
+    cmd: 'rm ~/get-pip.py'

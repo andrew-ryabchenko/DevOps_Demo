@@ -1,0 +1,13 @@
+api_url: "http://api.aline-financial.com/api"
+applicants:
+  approved: 1
+  denied: 1
+users:
+  password: "Password@99"
+banks:
+  count: 1
+  branches_per_bank: 1
+transactions:
+  txn_per_account: 1
+admin_username: "Samantha.Bradley"
+admin_password: "Password@99"

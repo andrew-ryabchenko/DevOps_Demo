@@ -1,0 +1,4 @@
+- name: 'Install latest version of Certbot using pip'
+  ansible.builtin.pip:
+    name: 'certbot'
+    state: 'latest'

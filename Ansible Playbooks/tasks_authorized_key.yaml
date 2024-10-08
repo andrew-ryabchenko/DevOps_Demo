@@ -1,0 +1,4 @@
+- name: 'Add RSA public key to authorized_keys'
+  ansible.posix.authorized_key:
+    user: '{{ user }}'
+    key: "{{ lookup('file', 'id_rsa.pub') }}"

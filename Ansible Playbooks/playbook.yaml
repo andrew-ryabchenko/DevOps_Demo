@@ -1,0 +1,30 @@
+- name: 'Install and configure SSH server and Certbot on Ubuntu hosts'
+  hosts: 'nodes_ansible_ubuntu_ar'
+  remote_user: 'ubuntu'
+  tasks:
+    - name: 'Install and upgrade openssh-server'
+      ansible.builtin.apt:
+        name: 'openssh-server'
+        state: 'latest'
+    - import_tasks: 'tasks_authorized_key.yaml'
+    - import_tasks: 'tasks_install_pip.yaml'
+    - import_tasks: 'tasks_install_certbot.yaml'
+  vars: 
+    user: 'ubuntu'
+
+- name: 'Install and configure SSH server and Certbot on REHL and AL2 hosts'
+  hosts: 'nodes_ansible_rhel_ar:nodes_ansible_awslinux_ar'
+  remote_user: 'ec2-user'
+  tasks:
+    - name: 'Install and upgrade openssh-server'
+      become: True
+      become_user: 'root'
+      become_method: 'sudo'
+      ansible.builtin.yum:
+        name: 'openssh-server'
+        state: 'latest'
+    - import_tasks: 'tasks_authorized_key.yaml'
+    - import_tasks: 'tasks_install_pip.yaml'
+    - import_tasks: 'tasks_install_certbot.yaml'
+  vars:
+    user: 'ec2-user'

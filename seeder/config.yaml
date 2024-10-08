@@ -1,0 +1,16 @@
+# The following is the correct format of this configuration file. 
+# Feel free to change the values of the keys as per your requirements.
+
+api_url: "http://api.aline-financial.com/api"
+applicants:
+  approved: 10
+  denied: 0
+users:
+  password: "Password@99"
+banks:
+  count: 10
+  branches_per_bank: 2
+transactions:
+  txn_per_account: 4
+admin_username: "Brandon.Mathis"
+admin_password: "Password@99"
